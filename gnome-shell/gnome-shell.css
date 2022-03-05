@@ -1,0 +1,9 @@
+#panel {
+    height: 1.1em;
+    margin-top: 0;
+}
+
+#panel .panel-button .system-status-icon {
+    icon-size: 1em;
+    padding: 0;
+}

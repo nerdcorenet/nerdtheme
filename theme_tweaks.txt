@@ -1,0 +1,39 @@
+GNOME Shell:
+gnome-shell styles may be overridden in the file
+  ~/.themes/mytheme/gnome-shell/gnome-shell.css
+All styles are inherited except those overridden in this file.
+In order to enable a custom gnome-shell theme, install packages
+  gnome-shell-extensions gnome-twek-tool
+then use the Tweak Tool to enable your custom GNOME Shell theme.
+- Launch the “Tweaks” app from the application launcher and go to the “Extensions” tab in the sidebar. Enable the “User Themes” extension, as shown in the screenshot below. Be sure that the “Extensions” toggle is enabled at the top.
+
+GTK:
+In order to style the window dressings in GNOME, you must create a
+custom GTK+ Theme in the file
+  ~/.themes/mytheme/gtk-3.0/gtk.css
+This file provides all style information for the theme; styles are NOT
+inherited from previous themes.
+In order to identify the correct CSS Selector to target, use the
+GTK Inspector application:
+  $ gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true
+  $ GTK_DEBUG=interactive gnome-application-name
+
+FireFox:
+See https://superuser.com/a/1669549
+First identify the Profile Path for your FF installation by entering this URL:
+  about:settings
+Search for "Profile Path" and go there in the filesystem. Create a new file
+  $profile_path/chrome/userChrome.css
+Put this line at the top of the file:
+  @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+Enable customizations from this file:
+  about:config
+  toolkit.legacyUserProfileCustomizations.stylesheets = True
+In order to identify the correct CSS Selector to target,
+enable chrome debugging and remote debugging:
+  F12
+  F1
+  Advanced Preferences:
+  - Chrome Debugging = Enabled
+  - Remote Debugging = Enabled
+  Menubar => Tools => Browser Tools => Browser Toolbox
